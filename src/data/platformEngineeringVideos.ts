@@ -34,8 +34,20 @@ export const videos: Video[] = [
   },
   {
     id: "6",
-    title: "Qualities of a Highly Effective Architect",
-    youtubeId: "QeKheNfO3Yg",
-    description: "Dr. Venkat Subramaniam, Devoxx Belgium 2019",
+    title: "Developer Productivity",
+    youtubeId: "xOup5X8HfCY",
+    description: "Beyang Liu, CTO @ Sourcegraph, GitKon 2022",
+  },
+  {
+    id: "7",
+    title: "Common platform team mistakes and how to avoid them",
+    youtubeId: "kPXsk5-m1MM",
+    description: "Camille Fournier, CTO & Author, PlatformCon 2025",
+  },
+  {
+    id: "8",
+    title: "Two sides of the platform coin with operator's and customer's voices",
+    youtubeId: "NS56hiOT-Tc",
+    description: "Sarah Duncan & Ahmed Bebars, Staff Software Engineer @ The New York Times, PlatformCon 2025",
   }
 ];
