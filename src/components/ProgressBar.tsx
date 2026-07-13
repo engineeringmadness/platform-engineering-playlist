@@ -12,12 +12,12 @@ const ProgressBar = ({ completed, total }: ProgressBarProps) => {
   return (
     <div className="w-full mb-8">
       <div className="flex justify-between mb-2">
-        <span className="text-sm font-medium text-gray-700">Progress</span>
-        <span className="text-sm font-medium text-gray-700">{completed} of {total} videos completed</span>
+        <span className="text-sm font-medium text-[#9aa7bd]">Progress</span>
+        <span className="text-sm font-medium text-[#9aa7bd]">{completed} of {total} videos completed</span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className="w-full bg-[#1f2a44] rounded-full h-2.5">
         <div
-          className="bg-[#38b6ff] h-2.5 rounded-full transition-all duration-300 ease-in-out"
+          className="bg-[#22d3ee] h-2.5 rounded-full transition-all duration-300 ease-in-out"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
