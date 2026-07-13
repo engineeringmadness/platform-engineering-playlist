@@ -4,10 +4,10 @@ import { Video } from "../types/video";
 export const videos: Video[] = [
   {
     id: "1",
-    title: "Beyond DevOps: The rise of full-stack platform engineering",
-    youtubeId: "kzss_F2F7pg",
-    presenter: "Peter Birkholm-Buch",
-    designation: "Head of Software Engineering & DevOps @ Carlsberg",
+    title: "10 things we hate about platform engineering",
+    youtubeId: "esvydx09PEA",
+    presenter: "Emma Dahl Jeppesen and Dan Grøndahl",
+    designation: "Platform Advocate for VELUX",
     event: "The DevOps Conference 2024",
   },
   {
@@ -64,5 +64,13 @@ export const videos: Video[] = [
     presenter: "Sarah Duncan & Ahmed Bebars",
     designation: "Staff Software Engineer @ The New York Times",
     event: "PlatformCon 2025",
+  },
+  {
+    id: "9",
+    title: "Platform Engineering in the age of Generative AI",
+    youtubeId: "S66a51BuOIo",
+    presenter: "Will Velida",
+    designation: "Senior Software Engineer @ Microsoft",
+    event: "NDC Copenhagen 2026",
   },
 ];
