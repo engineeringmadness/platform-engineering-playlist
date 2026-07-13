@@ -12,7 +12,7 @@ interface VideoCardProps {
 
 const VideoCard = ({ video, isWatched, onToggleWatched }: VideoCardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-[#111a2e] border border-[#1f2a44] rounded-lg shadow-lg overflow-hidden">
       <div className="aspect-video w-full">
         <iframe
           width="100%"
@@ -27,18 +27,20 @@ const VideoCard = ({ video, isWatched, onToggleWatched }: VideoCardProps) => {
       </div>
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-semibold text-gray-900">{video.title}</h3>
+          <h3 className="text-lg font-semibold text-[#e6f7ff]">{video.title}</h3>
           <button
             onClick={onToggleWatched}
             className={cn(
               "p-2 rounded-full transition-colors",
-              isWatched ? "bg-green-100 text-green-600" : "bg-gray-100 text-gray-400 hover:bg-gray-200"
+              isWatched
+                ? "bg-[#22d3ee]/15 text-[#22d3ee]"
+                : "bg-[#1f2a44] text-[#9aa7bd] hover:bg-[#2a3760]"
             )}
           >
             <Check className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-gray-600 text-sm">{video.description}</p>
+        <p className="text-[#9aa7bd] text-sm">{video.description}</p>
       </div>
     </div>
   );

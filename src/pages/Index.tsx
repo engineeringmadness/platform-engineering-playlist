@@ -17,11 +17,11 @@ const Index = () => {
 
   useEffect(() => {
     localStorage.setItem(WATCHED_VIDEOS_KEY, JSON.stringify(watchedVideos));
-    
+
     if (watchedVideos.length === videos.length) {
       setShowConfetti(true);
       toast("🎉 Congratulations! You've completed all videos!");
-      setTimeout(() => setShowConfetti(false), 5000); // Hide confetti after 5 seconds
+      setTimeout(() => setShowConfetti(false), 5000);
     }
   }, [watchedVideos]);
 
@@ -30,15 +30,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#ffffff] py-12 px-4 sm:px-6 lg:px-8 flex flex-col">
+    <div className="min-h-screen bg-[#0b1220] py-12 px-4 sm:px-6 lg:px-8 flex flex-col">
       {showConfetti && <ReactConfetti />}
       <div className="max-w-7xl mx-auto flex-grow">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#38b6ff] mb-4">Platform Engineering Playlist</h1>
-          <p className="text-lg text-gray-600 text-left">
-            My mission is to help engineers build better developer platforms. We focus on building platforms that are adored by users, flourish organically not due to mandates, are a breeze to operate. 
-I am engineer working on building a data platform used by data scientists and analysts to build reporting solutions. 
-Below is a list of curated talks which have helped me understand how a platform which caters to a technical audience is built and operated.
+          <h1 className="text-4xl font-bold text-[#22d3ee] mb-4">Platform Engineering Playlist</h1>
+          <p className="text-lg text-[#9aa7bd] text-left">
+            My mission is to help engineers build better developer platforms. We focus on building platforms that are adored by users, flourish organically not due to mandates, are a breeze to operate.
+            I am engineer working on building a data platform used by data scientists and analysts to build reporting solutions.
+            Below is a list of curated talks which have helped me understand how a platform which caters to a technical audience is built and operated.
           </p>
         </div>
 
@@ -46,11 +46,11 @@ Below is a list of curated talks which have helped me understand how a platform 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {videos.map(video => (
-            <VideoCard 
-              key={video.id} 
-              video={video} 
-              isWatched={watchedVideos.includes(video.id)} 
-              onToggleWatched={() => toggleVideoWatched(video.id)} 
+            <VideoCard
+              key={video.id}
+              video={video}
+              isWatched={watchedVideos.includes(video.id)}
+              onToggleWatched={() => toggleVideoWatched(video.id)}
             />
           ))}
         </div>
