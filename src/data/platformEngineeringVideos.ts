@@ -4,11 +4,11 @@ import { Video } from "../types/video";
 export const videos: Video[] = [
   {
     id: "1",
-    title: "10 things we hate about platform engineering",
-    youtubeId: "esvydx09PEA",
-    presenter: "Emma Dahl Jeppesen & Dan Grøndahl",
-    designation: "Platform Advocate @ Velux",
-    event: "The DevOps Conference",
+    title: "Beyond DevOps: The rise of full-stack platform engineering",
+    youtubeId: "kzss_F2F7pg",
+    presenter: "Peter Birkholm-Buch",
+    designation: "Head of Software Engineering & DevOps @ Carlsberg",
+    event: "The DevOps Conference 2024",
   },
   {
     id: "2",
