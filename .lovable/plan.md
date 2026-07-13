@@ -1,32 +1,44 @@
 ## Goal
-Replace the current white background + blue (#38b6ff) accent with a dark theme and a cyan accent throughout the app.
-
-## Proposed palette
-- App background: near-black `#0b1220` (deep slate)
-- Surface / cards: `#111a2e` with subtle border `#1f2a44`
-- Primary text: `#e6f7ff`
-- Muted text: `#9aa7bd`
-- Accent (cyan): `#22d3ee` (with a slightly brighter `#67e8f9` for hover/glow)
+Show each video card with distinct fields: title, presenter name, presenter designation, and event — parsed from today's single `description` string.
 
 ## Changes
 
-1. **`src/pages/Index.tsx`**
-   - Page background: `#0b1220` instead of `#ffffff`
-   - Heading color: cyan `#22d3ee` instead of `#38b6ff`
-   - Description paragraph: light muted `#9aa7bd`
+### 1. `src/types/video.ts`
+Extend `Video` with structured fields (keep `description` optional for backwards compat, or drop it since only this app uses it):
 
-2. **`src/components/VideoCard.tsx`**
-   - Card background: `#111a2e`, border `#1f2a44`, title text light, description muted
-   - Tick button: unwatched = dark muted; watched = cyan-tinted background with cyan check
+```ts
+export interface Video {
+  id: string;
+  title: string;
+  youtubeId: string;
+  presenter: string;      // e.g. "Gregor Hohpe"
+  designation: string;    // e.g. "Principal Evangelist @ AWS"
+  event?: string;         // e.g. "PlatformCon 2024" (optional — some entries have none)
+}
+```
 
-3. **`src/components/ProgressBar.tsx`**
-   - Track: `#1f2a44`
-   - Fill: cyan `#22d3ee`
-   - Labels: light muted text
+### 2. `src/data/platformEngineeringVideos.ts`
+Split each existing description into the new fields. Inferred mapping:
 
-4. **`src/components/Footer.tsx`**
-   - Transparent/dark footer background, muted light text, keep Lovable link but in cyan to match the accent
+| # | Presenter | Designation | Event |
+|---|---|---|---|
+| 1 | Emma Dahl Jeppesen & Dan Grøndahl | Platform Advocate @ Velux | The DevOps Conference |
+| 2 | Gregor Hohpe | Principal Evangelist @ AWS | PlatformCon 2022 |
+| 3 | Gregor Hohpe | Principal Evangelist @ AWS | PlatformCon 2024 |
+| 4 | Greg Foster | CTO @ Graphite | — |
+| 5 | Punit Lad | Lead Consultant @ Thoughtworks | PlatformCon 2024 |
+| 6 | Beyang Liu | CTO @ Sourcegraph | GitKon 2022 |
+| 7 | Camille Fournier | CTO & Author | PlatformCon 2025 |
+| 8 | Sarah Duncan & Ahmed Bebars | Staff Software Engineer @ The New York Times | PlatformCon 2025 |
+
+### 3. `src/components/VideoCard.tsx`
+Replace the single description line with a small metadata block below the title:
+
+- Presenter name — bold, light text
+- Designation — muted text, smaller
+- Event — cyan accent pill/badge (only when present)
+
+Keep the existing dark theme (`#111a2e` card, `#22d3ee` accent) and the watched check button unchanged.
 
 ## Out of scope
-- No changes to video data, progress-tracking logic, confetti, or layout structure (still two videos per row).
-- Not refactoring hardcoded colors into design tokens in `index.css` as part of this pass — keeping the change minimal and matching the existing inline-hex pattern already used in the app.
+No layout, theme, progress, or persistence changes.

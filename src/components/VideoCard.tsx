@@ -26,12 +26,12 @@ const VideoCard = ({ video, isWatched, onToggleWatched }: VideoCardProps) => {
         ></iframe>
       </div>
       <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
+        <div className="flex justify-between items-start gap-3 mb-3">
           <h3 className="text-lg font-semibold text-[#e6f7ff]">{video.title}</h3>
           <button
             onClick={onToggleWatched}
             className={cn(
-              "p-2 rounded-full transition-colors",
+              "p-2 rounded-full transition-colors shrink-0",
               isWatched
                 ? "bg-[#22d3ee]/15 text-[#22d3ee]"
                 : "bg-[#1f2a44] text-[#9aa7bd] hover:bg-[#2a3760]"
@@ -40,7 +40,15 @@ const VideoCard = ({ video, isWatched, onToggleWatched }: VideoCardProps) => {
             <Check className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-[#9aa7bd] text-sm">{video.description}</p>
+        <div className="space-y-1">
+          <p className="text-[#e6f7ff] text-sm font-medium">{video.presenter}</p>
+          <p className="text-[#9aa7bd] text-xs">{video.designation}</p>
+          {video.event && (
+            <span className="inline-block mt-2 px-2 py-0.5 rounded-full text-xs font-medium bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/30">
+              {video.event}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

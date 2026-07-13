@@ -3,5 +3,7 @@ export interface Video {
   id: string;
   title: string;
   youtubeId: string;
-  description: string;
+  presenter: string;
+  designation: string;
+  event?: string;
 }
