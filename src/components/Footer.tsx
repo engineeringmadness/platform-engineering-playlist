@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="py-6 text-center bg-transparent border-t border-[#1f2a44] mt-12">
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center text-[#9aa7bd]">
-          <span>Curated with love ❤️ by </span>
+          <span>Curated with ❤️ by </span>
           <a
             href="https://engineeringmadness.dev"
             target="_blank"
